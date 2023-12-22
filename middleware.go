@@ -219,6 +219,15 @@ func NewWithConfig(logger *slog.Logger, config Config) gin.HandlerFunc {
 			}
 		}
 
+		if l := len(c.Errors); l == 1 {
+			attributes = append(attributes, slog.Any("error", c.Errors.Last()))
+		} else if l > 1 {
+			// still include the last error for convenience
+			attributes = append(attributes, slog.Any("error", c.Errors.Last()))
+			// include all errors
+			attributes = append(attributes, slog.Any("errors", c.Errors.Errors()))
+		}
+
 		logger.LogAttrs(c.Request.Context(), level, msg, attributes...)
 	}
 }
