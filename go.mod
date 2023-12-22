@@ -1,4 +1,4 @@
-module github.com/samber/slog-gin
+module github.com/DEXPRO-Solutions-GmbH/slog-gin
 
 go 1.21
 

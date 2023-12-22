@@ -7,9 +7,9 @@ import (
 
 	"log/slog"
 
+	sloggin "github.com/DEXPRO-Solutions-GmbH/slog-gin"
 	"github.com/gin-gonic/gin"
 	slogformatter "github.com/samber/slog-formatter"
-	sloggin "github.com/samber/slog-gin"
 )
 
 func main() {
