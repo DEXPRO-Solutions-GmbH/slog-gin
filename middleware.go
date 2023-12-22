@@ -206,7 +206,7 @@ func NewWithConfig(logger *slog.Logger, config Config) gin.HandlerFunc {
 		}
 
 		level := config.DefaultLevel
-		msg := "Incoming request"
+		msg := ""
 		if status >= http.StatusBadRequest && status < http.StatusInternalServerError {
 			level = config.ClientErrorLevel
 			msg = c.Errors.String()
