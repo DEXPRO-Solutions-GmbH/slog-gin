@@ -209,10 +209,14 @@ func NewWithConfig(logger *slog.Logger, config Config) gin.HandlerFunc {
 		msg := ""
 		if status >= http.StatusBadRequest && status < http.StatusInternalServerError {
 			level = config.ClientErrorLevel
-			msg = c.Errors.String()
+			if len(c.Errors) > 0 {
+				msg = "Client Error: " + c.Errors.String()
+			}
 		} else if status >= http.StatusInternalServerError {
 			level = config.ServerErrorLevel
-			msg = c.Errors.String()
+			if len(c.Errors) > 0 {
+				msg = "Server Error: " + c.Errors.String()
+			}
 		}
 
 		logger.LogAttrs(c.Request.Context(), level, msg, attributes...)
