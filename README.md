@@ -1,3 +1,7 @@
+**Warning:** This is a fork of https://github.com/samber/slog-gin with custom behaviour as DEXPRO requires it. You should depend on the original project.
+
+We may try to contribute changes made in this fork at some point in time, if the changes seem worth in the main project. Until then, we use this fork to test
+our ideas.
 
 # slog: Gin middleware
 
